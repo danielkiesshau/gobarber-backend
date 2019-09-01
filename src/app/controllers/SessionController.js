@@ -21,11 +21,11 @@ class SessionController {
     });
 
     if (!user) {
-      return req.status(401).json({ error: 'User not found' });
+      return res.status(401).json({ error: 'User not found' });
     }
 
     if (!(await user.checkPassword(password))) {
-      return req.status(401).json({ error: 'Wrong user password' });
+      return res.status(401).json({ error: 'Wrong user password' });
     }
 
     const { id, name } = user;
